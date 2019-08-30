@@ -184,6 +184,10 @@
     },
 
     props: {
+      scrollingY:{
+        type:Boolean,
+        default:true
+      },
       onRefresh: Function,
       onInfinite: Function,
 
@@ -297,6 +301,12 @@
       }
     },
 
+    watch:{
+      scrollingY: function(value){
+        this.scroller.setOptions('scrollingY',value)
+      }
+    },
+
     mounted () {
       this.container = document.getElementById(this.containerId)
       this.container.style.width = this.w
@@ -314,6 +324,7 @@
 
       this.scroller = new Scroller(render, {
         scrollingX: false,
+        scrollingY:this.scrollingY,
         snapping: this.snapping,
         animating: this.animating,
         animationDuration: this.animationDuration,

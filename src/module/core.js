@@ -467,7 +467,11 @@
 		---------------------------------------------------------------------------
 			PUBLIC API
 		---------------------------------------------------------------------------
-		*/
+    */
+    
+    setOptions: function(option, value){
+      this.options[option]=value
+    },
 
 		/**
 		 * Configures the dimensions of the client (outer) and content (inner) elements.
